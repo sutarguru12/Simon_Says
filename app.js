@@ -25,7 +25,7 @@ document.addEventListener("click", function (event) {
     levelUp();
   }
   if (!started && event.target.classList.contains("btn")) {
-    h4.innerHTML = `Game over your score is ${maxLevel} <br></br> Click outside the button to restart.`;
+    h4.innerHTML = `Game over your score is ${curr - 1} <br></br> Click outside the button to restart.`;
   }
 });
 
@@ -57,6 +57,7 @@ function highestLevel(curr) {
     h5.innerText = `Highest Score is ${maxLevel}`;
   }
 }
+let curr = level;
 function check(idx) {
   if (userSeq[idx] === gameSeq[idx]) {
     if (userSeq.length == gameSeq.length) {
@@ -71,6 +72,7 @@ function check(idx) {
     setTimeout(function () {
       body.style.backgroundColor = "";
     }, 500);
+    curr = level;
     reset();
     console.log("Game Over...!");
   }
